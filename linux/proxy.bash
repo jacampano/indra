@@ -12,7 +12,10 @@ do_aux() {
     if [ "${startswith}" == "${ip:0:${#startswith}}" ]; then
       export {http,https,ftp}_proxy="http://proxy.indra.es:8080"
       export no_proxy='*.indraweb.net,*.indra.es,*.indrabmb.es'
+
       alias apt-get="sudo apt-get -o Acquire::http::Proxy=\"http://proxy.indra.es:8080\" -o Acquire::https::Proxy=\"http://proxy.indra.es:8080\""
+
+      alias git="git -c \"http.proxy=proxy.indra.es:8080\" -c \"https.proxy=proxy.indra.es:8080\""
     fi
   done
 }
